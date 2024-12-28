@@ -22,6 +22,8 @@ if [ ! -z "${LOG_FILE}" ]; then
   args="${ARGS} -b ${LOG_FILE}"
 fi
 
+nginx -g 'daemon off;'
+
 /usr/local/bin/fiche "${args}" &
 FICHE_PID=$!
 
@@ -36,5 +38,3 @@ trap "close" SIGINT
 
 # Wait for Fiche (in case it crashes, etc)
 wait "$FICHE_PID"
-
-nginx -g 'daemon off;'
