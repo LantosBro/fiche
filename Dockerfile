@@ -8,8 +8,7 @@ COPY . .
 RUN apk update && apk add \
     make \
     gcc \
-    g++ \
-    nginx && \
+    g++ && \
     make && \
     make install && \
     make clean
